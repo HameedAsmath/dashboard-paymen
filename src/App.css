@@ -1,0 +1,5 @@
+/* Additional app-specific styles can go here */
+.app-root {
+  height: 100vh;
+  overflow: hidden;
+}

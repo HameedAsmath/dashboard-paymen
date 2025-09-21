@@ -1,0 +1,354 @@
+.dashboard-page {
+  .dashboard-header {
+    margin-bottom: 24px;
+    // margin-left: var(--sidebar-width);
+
+    .page-title {
+      color: var(--text-primary);
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+    }
+  }
+
+  .dashboard-page {
+    .dashboard-content .main-content .dashboard-row {
+      .ant-row {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+      }
+    }
+  }
+
+  .dashboard-content {
+    display: flex;
+    gap: var(--space-lg);
+    width: 100%;
+
+    // Desktop layout
+    @media (min-width: 768px) {
+      flex-direction: row;
+
+      .main-content {
+        flex: 1;
+        width: 65%;
+
+        .dashboard-row {
+          margin-bottom: var(--space-lg);
+
+          &.row-1 {
+            .kpi-section {
+              .ant-row {
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Mobile layout - complete vertical stacking
+    @media (max-width: 767px) {
+      flex-direction: column;
+      gap: var(--space-md);
+
+      .main-content {
+        width: 100%;
+
+        .dashboard-row {
+          margin-bottom: var(--space-md);
+
+          // Force ALL Ant Design columns to stack vertically
+          .ant-row {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+
+            .ant-col {
+              width: 100% !important;
+              max-width: 100% !important;
+              flex: none !important;
+              flex-basis: auto !important;
+              margin-left: 0 !important;
+              margin-right: 0 !important;
+              padding-left: 0 !important;
+              padding-right: 0 !important;
+              margin-bottom: var(--space-sm);
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .chart-card,
+  .products-card {
+    height: 100%;
+  }
+  .location-card {
+    padding: 20px;
+  }
+
+  .chart-card,
+  .location-card,
+  .products-card {
+    // background: var(--card-bg);
+    // border: 1px solid var(--border-color);
+    // border-radius: var(--border-radius);
+    // box-shadow: var(--box-shadow);
+
+    .ant-card-head {
+      // border-bottom: 1px solid var(--border-color);
+      padding: 16px 20px;
+
+      .ant-card-head-title {
+        color: var(--text-primary);
+        font-size: 16px;
+        font-weight: 600;
+      }
+    }
+
+    .ant-card-body {
+      // padding: 20px;
+    }
+  }
+
+  .chart-subtitle {
+    display: block;
+    color: var(--text-tertiary);
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  .sales-card {
+    .ant-card-body {
+      padding: 20px 20px 16px;
+    }
+  }
+
+  .location-card {
+    background-color: var(--card-bg) !important;
+
+    .location-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .world-map-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 8px;
+
+      .world-map-image {
+        max-width: 100%;
+        height: auto;
+        opacity: 0.8;
+        filter: brightness(0.9);
+      }
+    }
+
+    .location-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .location-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .location-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .location-name {
+          color: var(--text-secondary);
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .location-value {
+          color: var(--text-primary);
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+
+      .location-progress {
+        width: 100%;
+        height: 4px;
+        background-color: var(--bg-tertiary);
+        border-radius: 3px;
+        overflow: hidden;
+
+        .progress-bar {
+          height: 100%;
+          background: linear-gradient(90deg, #a8c5da, #a8c5da);
+          border-radius: 3px;
+          transition: width 0.3s ease;
+        }
+      }
+    }
+  }
+
+  .products-card {
+    .products-table {
+      .table-header {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 16px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 16px;
+
+        .header-cell {
+          color: var(--text-light);
+          font-size: 13px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+      }
+
+      .table-row {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 16px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-light);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .table-cell {
+          color: var(--text-primary);
+          font-size: 14px;
+
+          &.product-name {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Enhanced Responsive Design
+@media (max-width: 1200px) {
+  .dashboard-page .dashboard-content {
+    .main-content {
+      width: 100% !important;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .dashboard-page .dashboard-content {
+    .main-content {
+      width: 60%;
+    }
+  }
+}
+
+// Complete vertical stacking below 768px
+@media (max-width: 767px) {
+  .dashboard-page {
+    .dashboard-header .page-title {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      text-align: center;
+    }
+
+    .dashboard-content {
+      flex-direction: column;
+      gap: var(--space-md);
+
+      .main-content {
+        width: 100%;
+
+        .dashboard-row {
+          margin-bottom: var(--space-md);
+
+          // Force all Ant Design rows to stack vertically
+          .ant-row {
+            flex-direction: column !important;
+
+            .ant-col {
+              width: 100% !important;
+              max-width: 100% !important;
+              flex: none !important;
+              margin-bottom: var(--space-sm);
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .products-card .products-table {
+      .table-header,
+      .table-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+      }
+    }
+  }
+}
+
+// Additional mobile overrides for stubborn elements
+@media (max-width: 767px) {
+  .dashboard-page .dashboard-content .main-content {
+    // Force KPI section to single column
+    .row-1 .kpi-section {
+      .ant-row {
+        display: block !important;
+
+        .ant-col {
+          display: block !important;
+          width: 100% !important;
+          margin-bottom: var(--space-sm) !important;
+          float: none !important;
+        }
+      }
+    }
+
+    // Force all dashboard rows to single column
+    .dashboard-row {
+      .ant-row {
+        display: block !important;
+
+        .ant-col {
+          display: block !important;
+          width: 100% !important;
+          margin-bottom: var(--space-sm) !important;
+          float: none !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-page {
+    .dashboard-content .main-content .dashboard-row {
+      .ant-row .ant-col {
+        margin-bottom: var(--space-xs);
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .dashboard-page .dashboard-header .page-title {
+    font-size: 1.25rem;
+  }
+}

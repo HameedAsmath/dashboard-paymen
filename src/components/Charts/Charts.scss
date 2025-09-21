@@ -1,0 +1,129 @@
+.chart-container {
+  width: 100%;
+
+  .recharts-wrapper {
+    .recharts-cartesian-axis-tick-value {
+      fill: var(--text-tertiary);
+    }
+
+    .recharts-cartesian-grid line {
+      stroke: var(--border-color);
+      opacity: 0.5;
+    }
+  }
+}
+
+.chart-legend {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+
+      &.current {
+        background-color: #1f2937;
+      }
+
+      &.previous {
+        background-color: #9ca3af;
+      }
+    }
+  }
+}
+
+.revenue-chart {
+  [data-theme="dark"] & {
+    .legend-item .legend-dot.current {
+      background-color: #f9fafb;
+    }
+  }
+}
+
+.donut-chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  .chart-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .chart-center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    .center-percentage {
+      font-size: clamp(12px, 4vw, 20px);
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+  }
+
+  .chart-legend-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+
+    .legend-item-vertical {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .legend-dot-large {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .legend-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .legend-name {
+          font-size: 13px;
+          color: var(--text-secondary);
+        }
+
+        .legend-amount {
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--text-primary);
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .chart-legend {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .donut-chart-container {
+    .chart-wrapper {
+      max-width: 160px;
+    }
+  }
+}

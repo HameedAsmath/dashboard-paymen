@@ -1,0 +1,225 @@
+.main-layout {
+  min-height: 100vh;
+  display: flex;
+  // background: var(--bg-secondary);
+
+  .right-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    flex-shrink: 0;
+    // padding: var(--content-padding);
+    border-left: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    overflow-y: auto;
+    z-index: 160;
+
+    .sidebar-card {
+      margin-bottom: 24px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .ant-card-head {
+        padding: 16px 20px 12px;
+        min-height: auto;
+      }
+
+      .ant-card-body {
+        padding: 16px 20px;
+      }
+    }
+
+    .notifications-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .notification-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 4px 0;
+      transition: background-color 0.2s ease;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background-color: var(--bg-tertiary);
+        border-radius: 4px;
+        margin: 0 -8px;
+        padding: 8px;
+      }
+    }
+
+    .notification-icon-container {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .notification-icon {
+        color: var(--text-primary);
+        transition: color 0.2s ease;
+      }
+
+      &[style*="--primary-color"] .notification-icon {
+        color: white;
+      }
+    }
+
+    .notification-content {
+      flex: 1;
+      min-width: 0;
+
+      .notification-title {
+        display: block;
+        color: var(--text-primary);
+        font-size: 13px;
+        font-weight: 500;
+        margin-bottom: 3px;
+        line-height: 1.4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .notification-time {
+        color: var(--text-tertiary);
+        font-size: 11px;
+        font-weight: 400;
+      }
+    }
+
+    .activities-list,
+    .contacts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+}
+
+.main-content {
+  transition: margin-left 0.3s ease, margin-right 0.3s ease;
+  min-height: 100vh;
+  flex: 1;
+
+  // Desktop layout - account for right sidebar
+  @media (min-width: 1200px) {
+    margin-right: 150px; // Right sidebar width
+    // margin-left: 200px;
+  }
+
+  // Desktop layout
+  @media (min-width: 768px) {
+    // margin-left: 210px;
+
+    &.collapsed {
+      margin-left: 80px;
+    }
+  }
+
+  // Mobile layout - no margins
+  @media (max-width: 767px) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  // Tablet layout - no right margin
+  @media (max-width: 1199px) {
+    margin-right: 0;
+  }
+}
+
+.page-content {
+  // background: var(--bg-secondary);
+  padding: 0;
+  min-height: calc(100vh - var(--header-height));
+
+  .content-wrapper {
+    padding: var(--content-padding);
+    max-width: min(100%, 1600px);
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 199;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Responsive breakpoints
+@media (max-width: 320px) {
+  .page-content .content-wrapper {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-content .content-wrapper {
+    padding: 0 0 0 1.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .page-content .content-wrapper {
+    max-width: 1800px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page-content .content-wrapper {
+    max-width: 2000px;
+  }
+}
+
+// Hide right sidebar on smaller screens
+@media (max-width: 1199px) {
+  .main-layout .right-sidebar {
+    display: none;
+  }
+}
+
+// Responsive adjustments for smaller screens
+@media (max-width: 1440px) {
+  .page-content .content-wrapper {
+    max-width: 1800px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-content .content-wrapper {
+    padding: 0 0 0 1.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .page-content .content-wrapper {
+    padding: 0.75rem;
+  }
+}
