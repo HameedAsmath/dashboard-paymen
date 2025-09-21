@@ -1,6 +1,10 @@
 # eCommerce Dashboard
 
-## 🚀 Tech Stack
+## 🚀 Live Demo
+
+**[🌟 View Live Demo](https://dashboard-paymen.vercel.app/dashboard)** - Deployed on Vercel
+
+## 🛠 Tech Stack
 
 ### Core Technologies
 

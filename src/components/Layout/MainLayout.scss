@@ -115,9 +115,18 @@
   flex: 1;
 
   // Desktop layout - account for right sidebar
-  @media (min-width: 1200px) {
-    margin-right: 150px; // Right sidebar width
-    // margin-left: 200px;
+  // Right margin only when right sidebar is present
+  &.has-right-sidebar {
+    @media (min-width: 1200px) {
+      margin-right: 320px; // Right sidebar width
+    }
+  }
+
+  // No right margin when no right sidebar
+  &:not(.has-right-sidebar) {
+    @media (min-width: 1200px) {
+      margin-right: 0;
+    }
   }
 
   // Desktop layout

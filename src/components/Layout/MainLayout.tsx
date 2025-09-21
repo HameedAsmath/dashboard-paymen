@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Layout, Card, Typography } from "antd";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import {
   Bug,
   User,
@@ -28,10 +28,12 @@ const MainLayout = () => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1200);
   const [isDashboard, setIsDashboard] = useState(false);
 
+  const location = useLocation();
+
+  // Properly track route changes using React Router
   useEffect(() => {
-    const path = window.location.pathname;
-    setIsDashboard(path.includes("dashboard"));
-  }, [window.location.pathname]);
+    setIsDashboard(location.pathname.includes("dashboard"));
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -98,7 +100,11 @@ const MainLayout = () => {
         mobileOpen={mobileMenuOpen}
       />
 
-      <Layout className={`main-content ${collapsed ? "collapsed" : ""}`}>
+      <Layout
+        className={`main-content ${collapsed ? "collapsed" : ""} ${
+          isDesktop && isDashboard ? "has-right-sidebar" : ""
+        }`}
+      >
         <Header onMenuClick={handleMenuClick} collapsed={collapsed} />
 
         <Content className="page-content" data-testid="page-content">
@@ -108,7 +114,7 @@ const MainLayout = () => {
         </Content>
       </Layout>
 
-      {/* Right Sidebar - Only show on desktop, positioned from top */}
+      {/* Right Sidebar - Only show on desktop dashboard */}
       {isDesktop && isDashboard && (
         <div className="right-sidebar">
           {/* Notifications */}
