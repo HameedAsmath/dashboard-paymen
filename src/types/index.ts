@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 export interface MetricCardProps {
   title: string;
@@ -21,7 +21,7 @@ export interface AvatarBlockProps {
 
 export interface ChartDataPoint {
   name: string;
-  value: number;
+  value?: number;
   [key: string]: any;
 }
 

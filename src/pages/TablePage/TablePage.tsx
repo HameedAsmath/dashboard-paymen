@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Table, Button, Input, Space, Tag, Pagination, Typography } from "antd";
+import { Table, Button, Input, Pagination, Typography } from "antd";
 import { Plus, Filter, ArrowUpDown, Search } from "lucide-react";
 import AvatarBlock from "../../components/AvatarBlock/AvatarBlock";
 import type { OrderData } from "../../types";
@@ -56,7 +56,7 @@ const TablePage = () => {
       dataIndex: "user",
       key: "user",
       width: 180,
-      render: (user: any, record: OrderData, index: number) => (
+      render: (user: any, _record: OrderData, index: number) => (
         <AvatarBlock
           name={user.name}
           description=""

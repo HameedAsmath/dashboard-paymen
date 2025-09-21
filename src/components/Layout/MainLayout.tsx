@@ -26,6 +26,12 @@ const MainLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1200);
+  const [isDashboard, setIsDashboard] = useState(false);
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    setIsDashboard(path.includes("dashboard"));
+  }, [window.location.pathname]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -103,7 +109,7 @@ const MainLayout = () => {
       </Layout>
 
       {/* Right Sidebar - Only show on desktop, positioned from top */}
-      {isDesktop && (
+      {isDesktop && isDashboard && (
         <div className="right-sidebar">
           {/* Notifications */}
           <Card

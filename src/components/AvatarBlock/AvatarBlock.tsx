@@ -1,5 +1,4 @@
 import { Avatar } from "antd";
-import { User } from "lucide-react";
 import type { AvatarBlockProps } from "../../types";
 import "./AvatarBlock.scss";
 

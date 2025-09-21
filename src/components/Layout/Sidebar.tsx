@@ -8,7 +8,6 @@ import {
   User,
   Building2,
   FileText,
-  Users,
   CreditCard,
   MessageSquare,
 } from "lucide-react";
@@ -35,7 +34,7 @@ const Sidebar = ({
     {
       key: "favorites",
       label: "Favorites",
-      type: "group",
+      type: "group" as const,
       children: [
         {
           key: "/",
@@ -52,7 +51,7 @@ const Sidebar = ({
     {
       key: "recently",
       label: "Recently",
-      type: "group",
+      type: "group" as const,
       children: [
         {
           key: "/overview-recent",
@@ -69,7 +68,7 @@ const Sidebar = ({
     {
       key: "dashboards",
       label: "Dashboards",
-      type: "group",
+      type: "group" as const,
       children: [
         {
           key: "/dashboard",
@@ -96,7 +95,7 @@ const Sidebar = ({
     {
       key: "pages",
       label: "Pages",
-      type: "group",
+      type: "group" as const,
       children: [
         {
           key: "/user-profile",
