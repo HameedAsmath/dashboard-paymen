@@ -2,7 +2,7 @@
 
 ## 🚀 Live Demo
 
-**[🌟 View Live Demo](https://dashboard-paymen.vercel.app/dashboard)** - Deployed on Vercel
+**[🌟 View Live Demo](https://dashboard-paymen.vercel.app)** - Deployed on Vercel
 
 ## 🛠 Tech Stack
 
