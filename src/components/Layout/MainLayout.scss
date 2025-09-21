@@ -118,7 +118,7 @@
   // Right margin only when right sidebar is present
   &.has-right-sidebar {
     @media (min-width: 1200px) {
-      margin-right: 320px; // Right sidebar width
+      margin-right: 280px; // Right sidebar width
     }
   }
 

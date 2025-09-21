@@ -12,9 +12,9 @@
   transition: all 0.3s ease;
 
   // Desktop layout - account for right sidebar
-  @media (min-width: 1200px) {
-    margin-right: 128px; // Right sidebar width
-  }
+  // @media (min-width: 1200px) {
+  //   margin-right: 128px; // Right sidebar width
+  // }
 
   // Tablet layout - no right margin
   @media (max-width: 1199px) {
